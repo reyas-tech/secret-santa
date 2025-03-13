@@ -1,7 +1,22 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} **/
 module.exports = {
-  preset: 'ts-jest',
+  __esModule: true,
+  default: {
+    preset: 'jest-preset-angular',
+    setupFilesAfterEnv: [
+      '<rootDir>/src/setup-jest.ts',
+    ],
+    testPathIgnorePatterns: [
+      '<rootDir>/node_modules/',
+      '<rootDir>/dist/',
+    ],
+    moduleNameMapper: {
+      '^@app/(.*)$': '<rootDir>/src/app/$1',
+    },
+  },
   transform: {
-    '^.+\\.(ts|tsx)?$': 'ts-jest'
-  }
-};
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {},
+    ],
+  },
+}
