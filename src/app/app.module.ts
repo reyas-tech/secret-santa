@@ -11,11 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const materialImports = [MatFormFieldModule, MatInputModule, MatButtonModule];
 
 @NgModule({
-    declarations: [AppComponent, LoginComponent, QuestionnaireComponent],
+    declarations: [AppComponent, LoginComponent, QuestionnaireComponent, PageNotFoundComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
