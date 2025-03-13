@@ -1,6 +1,7 @@
-<form [formGroup]="questionnaire">
+<form [formGroup]="questionnaire" (ngSubmit)="onSubmit()">
     <mat-form-field *ngFor="let question of questions; index as i">
         <mat-label>{{ question }}</mat-label>
         <textarea matInput [formControlName]="i"></textarea>
     </mat-form-field>
+    <button mat-flat-button type="submit" [disabled]="!questionnaire.valid">Submit</button>
 </form>
