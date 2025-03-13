@@ -5,32 +5,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
-const materialImports = [
-  MatFormFieldModule,
-  MatInputModule
-]
+const materialImports = [MatFormFieldModule, MatInputModule, MatButtonModule];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    QuestionnaireComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ...materialImports
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent, LoginComponent, QuestionnaireComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ...materialImports,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
