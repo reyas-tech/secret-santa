@@ -1,22 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavBarComponent } from './nav-bar.component';
+import { render, RenderResult } from '@testing-library/angular';
+import userEvent, { UserEvent } from '@testing-library/user-event';
+import '@testing-library/jest-dom';
+import { CommonModule } from '@angular/common';
 
-describe('NavBarComponent', () => {
-    let component: NavBarComponent;
-    let fixture: ComponentFixture<NavBarComponent>;
+let component: RenderResult<NavBarComponent>;
+let user: UserEvent;
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [NavBarComponent],
-        }).compileComponents();
-
-        fixture = TestBed.createComponent(NavBarComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+const initComponent = async () => {
+    user = userEvent.setup();
+    return render(NavBarComponent, {
+        imports: [CommonModule],
+        declarations: [],
+        providers: [],
     });
+};
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
+describe('given a user opens the site', () => {
+    it('should display the navigation menu', async () => {
+        component = await initComponent();
+        // expect(component.getByAltText('Gift Box Icon')).toBeVisible();
+        expect(component.getByText('Questionnaire')).toBeVisible();
+        expect(component.getByText('404')).toBeVisible();
     });
 });

@@ -2,11 +2,10 @@ import { QuestionnaireComponent } from './questionnaire.component';
 import { render, RenderResult } from '@testing-library/angular';
 import userEvent, { UserEvent } from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import { waitFor } from '@testing-library/dom';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { waitFor } from '@testing-library/dom';
 
 let component: RenderResult<QuestionnaireComponent>;
 let user: UserEvent;
@@ -18,7 +17,6 @@ const initComponent = async () => {
             CommonModule,
             FormsModule,
             ReactiveFormsModule,
-            MatFormFieldModule,
             MatInputModule,
         ],
         declarations: [],
